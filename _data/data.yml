@@ -1,0 +1,206 @@
+#
+# Be aware that even a small syntax error here can lead to failures in output.
+#
+
+sidebar:
+    about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
+    education: False # set to False if you want education in main section instead of in sidebar
+
+    # Profile information
+    name: Felipe Guedes
+    tagline: Software Engineer
+    avatar: profile.jpeg
+
+    # Sidebar links
+    email: contatofelipeguedes@gmail.com
+    # phone: 
+    citizenship:
+    website: #do not add http://
+    linkedin: felipe-guedes-263480127
+    xing: 
+    github: guedesfelipe
+    telegram: # add your nickname without '@' sign
+    gitlab:
+    bitbucket:
+    twitter: 
+    stack-overflow: # Number/Username, e.g. 123456/alandoe
+    codewars:
+    goodreads: # Number-Username, e.g. 123456-alandoe
+    pdf: # PDF link 
+
+    languages:
+      - idiom: Portuguese PT-BR
+        level: Native
+
+      - idiom: English
+        level: Intermediate
+
+    interests:
+      - item: Coding
+        link:
+
+      - item: Vegan
+        link:
+
+      - item: Art
+        link:
+
+
+career-profile:
+    title: Career Profile
+    summary: |
+        Nascido em 05/11/1993, sempre me identifiquei com a
+        tecnologia desde pequeno, onde desmontava as coisas
+        para transformar em outras com novas funcionalidades, um
+        mini maker na época. Após o contato mais profundo com a
+        programação, isso me despertou uma imensa vontade de
+        solucionar novos problemas da melhor forma possível,
+        utilizando o conhecimento adquirido com o tempo e
+        aprendendo sempre coisas novas para a aplicação.
+        Sou uma pessoa calma, com facilidade de relacionamento
+        interpessoal, porém sou bastante persistente na busca de
+        meus objetivos pessoais e profissionais.
+education:
+    - degree: Bacharel em Ciências da Computação.
+      university: Universidade Paulista
+      time: Junho - 2017
+      details: 
+    - degree: Técnico em Informática.
+      university: Universidade Estadual de Campinas
+      time: 2012
+      details: 
+experiences:
+    - role: Senior Software Developer | Tech Lead | Scrum Master
+      time: FEV-2021 | Present
+      company: JustForYou
+      details: |
+        Responsável por arquitetar soluções dos produtos internos,
+        mantendo e gerenciando os algoritmos da empresa.
+        Revisar, projetar e discutir soluções de arquitetura de
+        software e requisitos de produto interno.
+        Definir e discutir a melhor abordagem para resolver as
+        necessidades do usuário final.
+        Ajudar a Equipe de Desenvolvimento a entender a
+        necessidade de itens do Backlog do Produto claros e concisos
+        e na entrega do produto para criar produtos de alto valor.
+#     - role: Senior Software Developer
+#       time: JUL-2019 | FEV-2021
+#       company: GPr Sistemas
+#       details: |
+#         Describe your role here lorem ipsum dolor sit amet, consectetuer
+#         adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+#         Cum sociis natoque penatibus et magnis dis parturient montes,
+#         nascetur ridiculus mus. Donec quam felis, ultricies nec,
+#         pellentesque eu, pretium quis, sem.
+#     - role: UI Developer
+#       time: 2012 - 2014
+#       company: Amazon, London
+#       details: |
+#         Describe your role here lorem ipsum dolor sit amet, consectetuer
+#         adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+#         Cum sociis natoque penatibus et magnis dis parturient montes,
+#         nascetur ridiculus mus. Donec quam felis, ultricies nec,
+#         pellentesque eu, pretium quis, sem.
+# projects:
+#     title: Projects
+#     intro: >
+#       You can list your side projects or open source libraries in this
+#       section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+#       Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+#     assignments:
+#       - title: Velocity
+#         link: "#hook"
+#         tagline: "A responsive website template designed to help startups promote, market and sell their products."
+
+#       - title: DevStudio
+#         link: "#"
+#         tagline: "A responsive website template designed to help web developers/designers market their services."
+
+#       - title: Tempo
+#         link: "#"
+#         tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
+
+#       - title: Atom
+#         link: "#"
+#         tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
+
+#       - title: Delta
+#         link: "#"
+#         tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+
+# publications:
+#     title: Publications
+#     intro: |
+#       You can list your publications in this section. Lorem ipsum dolor sit
+#       amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
+#       bibendum fringilla a eu lectus.
+#     papers:
+#       - title: The Art of Computer Programming
+#         link: "#"
+#         authors: Donald E. Knuth
+#         conference: Addison-Wesley, 1968
+
+#       - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
+#         link: "#"
+#         authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
+#         conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
+
+#       - title: A syntax directed compiler for Algol 60
+#         link: "#"
+#         authors: Edgar T. Irons
+#         conference: "Comm. ACM 4 (1961), 51–55"
+
+skills:
+    title: Skills &amp; Proficiency
+
+    toolset:
+      - name: Python
+        level: 98%
+
+      - name: Linux
+        level: 85%
+
+      - name: Django
+        level: 80%
+
+      - name: Flask
+        level: 88%
+
+      - name: MySQL 
+        level: 88%
+
+      - name: Oracle SQL
+        level: 83%
+
+      - name: PLQ/SQL
+        level: 83%
+
+      - name: Arduino
+        level: 60%
+
+      - name: MQTT
+        level: 70%
+
+      - name: Bootstrap
+        level: 90%
+
+      - name: JavaScript
+        level: 68%
+
+      - name: Git
+        level: 95%
+
+      - name: FastAPI
+        level: 88%
+
+      - name: PostgresSQL
+        level: 85%
+
+      - name: Redis
+        level: 55%
+
+      - name: RabbitMQ
+        level: 78%
+
+footer: >
+    Designed with <i class="fas fa-heart"></i> by <a href="https://guedesfelipe.github.io" target="_blank" rel="nofollow">Felipe Guedes</a>
