@@ -71,18 +71,14 @@ education:
       details: 
 experiences:
     - role: Senior Software Developer | Tech Lead | Scrum Master
-      time: FEV-2021 | Present
+      time: MAR-2021 | OUT-2021
       company: JustForYou
       details: |
-        Responsável por arquitetar soluções dos produtos internos,
-        mantendo e gerenciando os algoritmos da empresa.
-        Revisar, projetar e discutir soluções de arquitetura de
-        software e requisitos de produto interno.
-        Definir e discutir a melhor abordagem para resolver as
-        necessidades do usuário final.
-        Ajudar a Equipe de Desenvolvimento a entender a
-        necessidade de itens do Backlog do Produto claros e concisos
-        e na entrega do produto para criar produtos de alto valor.
+        Responsible for architecting internal product solutions, maintaining and managing the company's algorithms.
+        Review, design and discuss software architecture solutions and requirements of internal product.
+        Cooperate with team members to review software artifacts, define and discuss best approach to solve end-user needs.
+        Maintain software artifacts overtime.
+        Helping the Development Team understand the need for clear and concise Product Backlog items and in delivering the product to create high-value products.
 #     - role: Senior Software Developer
 #       time: JUL-2019 | FEV-2021
 #       company: GPr Sistemas
