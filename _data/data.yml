@@ -63,13 +63,28 @@ career-profile:
 education:
     - degree: Bacharel em Ciências da Computação.
       university: Universidade Paulista
-      time: Junho - 2017
+      time: 2013 | Junho - 2017
       details: 
     - degree: Técnico em Informática.
       university: Universidade Estadual de Campinas
-      time: 2012
+      time: 2010 | 2012
       details: 
 experiences:
+    - role: Software Engineer | Python Specialist
+      time: OUT-2021 | Present
+      company: Sensedia
+      details: |
+        Technologies:
+          - Python 3.x
+          - FastAPI
+          - Microservices
+          - MongoDB
+          - PostgreSQL
+          - Oracle
+          - MSSQL
+          - RabbitMQ
+          - Kubernetes
+          - Docker
     - role: Senior Software Developer | Tech Lead | Scrum Master
       time: MAR-2021 | OUT-2021
       company: JustForYou
@@ -79,24 +94,49 @@ experiences:
         Cooperate with team members to review software artifacts, define and discuss best approach to solve end-user needs.
         Maintain software artifacts overtime.
         Helping the Development Team understand the need for clear and concise Product Backlog items and in delivering the product to create high-value products.
-#     - role: Senior Software Developer
-#       time: JUL-2019 | FEV-2021
-#       company: GPr Sistemas
-#       details: |
-#         Describe your role here lorem ipsum dolor sit amet, consectetuer
-#         adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-#         Cum sociis natoque penatibus et magnis dis parturient montes,
-#         nascetur ridiculus mus. Donec quam felis, ultricies nec,
-#         pellentesque eu, pretium quis, sem.
-#     - role: UI Developer
-#       time: 2012 - 2014
-#       company: Amazon, London
-#       details: |
-#         Describe your role here lorem ipsum dolor sit amet, consectetuer
-#         adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-#         Cum sociis natoque penatibus et magnis dis parturient montes,
-#         nascetur ridiculus mus. Donec quam felis, ultricies nec,
-#         pellentesque eu, pretium quis, sem.
+
+        Technologies:
+          - Python 3.x
+          - FastAPI
+          - Django
+          - PostgreSQL
+          - Redis
+          - MongoDB
+          - RabbitMQ
+          - NodeJS
+          - SalesForce
+    - role: Senior Software Developer
+      time: JUL-2019 | FEV-2021
+      company: GPr Sistemas
+      details: |
+        GPr is a company in the network security sector, it has participated in the biggest technological transitions in the country over more than 30 years. Today it operates primarily with monitoring networks of major banks and ATMs machines in the country, mixing software development and information security. Here I had the opportunity to develop a network monitoring system for one of the most profitable banks in the world.
+ 
+        Main Functions:
+        - Django fullstack development.
+        - Use of SNMP protocol for mapping and monitoring of banking networks and other private companies.
+        - Development of customized solutions in web environments and network monitoring.
+
+        Technologies:
+          - Python 2.x
+          - Python 3.x
+          - Django
+          - Flask
+          - SNMP
+          - Cisco
+          - jQuery
+          - Bootstrap
+          - TCP/IP
+          - MySQL
+          - Splunk
+          - Redis
+    - role: Systems Analyst | Developer
+      time: FEV-2013 | JUL-2019
+      company: Debx - Zucchetti Brasil
+      details: |
+          ERP developer in Delphi with Oracle SQL.
+          Focused on the ERP HR module, developing integrations and
+          third-party and government database migrations.
+          Also performing maintenance and improvements in this module.
 # projects:
 #     title: Projects
 #     intro: >
@@ -154,7 +194,7 @@ skills:
         level: 98%
 
       - name: Linux
-        level: 85%
+        level: 90%
 
       - name: Django
         level: 80%
@@ -166,7 +206,7 @@ skills:
         level: 88%
 
       - name: Oracle SQL
-        level: 83%
+        level: 86%
 
       - name: PLQ/SQL
         level: 83%
@@ -187,10 +227,10 @@ skills:
         level: 95%
 
       - name: FastAPI
-        level: 88%
+        level: 90%
 
       - name: PostgresSQL
-        level: 85%
+        level: 92%
 
       - name: Redis
         level: 55%
