@@ -137,16 +137,12 @@ experiences:
           Focused on the ERP HR module, developing integrations and
           third-party and government database migrations.
           Also performing maintenance and improvements in this module.
-# projects:
-#     title: Projects
-#     intro: >
-#       You can list your side projects or open source libraries in this
-#       section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#       Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-#     assignments:
-#       - title: Velocity
-#         link: "#hook"
-#         tagline: "A responsive website template designed to help startups promote, market and sell their products."
+projects:
+    title: Projects
+    assignments:
+      - title: Tudo Vegan
+        link: "#http://www.tudovegan.com.br/"
+        tagline: ""
 
 #       - title: DevStudio
 #         link: "#"
