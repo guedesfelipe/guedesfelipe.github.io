@@ -49,29 +49,29 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-        Nascido em 05/11/1993, sempre me identifiquei com a
-        tecnologia desde pequeno, onde desmontava as coisas
-        para transformar em outras com novas funcionalidades, um
-        mini maker na época. Após o contato mais profundo com a
-        programação, isso me despertou uma imensa vontade de
-        solucionar novos problemas da melhor forma possível,
-        utilizando o conhecimento adquirido com o tempo e
-        aprendendo sempre coisas novas para a aplicação.
-        Sou uma pessoa calma, com facilidade de relacionamento
-        interpessoal, porém sou bastante persistente na busca de
-        meus objetivos pessoais e profissionais.
+        I have always identified myself with
+        technology since I was little, where I disassembled things
+        to transform into others with new functionalities, a
+        mini maker at the time. After deeper contact with the
+        programming, this awoke in me an immense desire to
+        solve new problems in the best possible way,
+        using the knowledge acquired over time and
+        always learning new things to apply.
+        I'm a calm person, with ease of interpersonal relationship
+        and I'm quite persistent in the search for
+        my personal and professional goals.
 education:
-    - degree: Bacharel em Ciências da Computação.
+    - degree: Bachelor in Computer Science.
       university: Universidade Paulista
-      time: 2013 | Junho - 2017
+      time: 2013 | June - 2017
       details: 
-    - degree: Técnico em Informática.
+    - degree: Computer Technician.
       university: Universidade Estadual de Campinas
       time: 2010 | 2012
       details: 
 experiences:
     - role: Software Engineer | Python Specialist
-      time: OUT-2021 | Present
+      time: OCT-2021 | Present
       company: Sensedia
       details: |
         Technologies:
@@ -86,7 +86,7 @@ experiences:
           - Kubernetes
           - Docker
     - role: Senior Software Developer | Tech Lead | Scrum Master
-      time: MAR-2021 | OUT-2021
+      time: MAR-2021 | OCT-2021
       company: JustForYou
       details: |
         Responsible for architecting internal product solutions, maintaining and managing the company's algorithms.
@@ -106,7 +106,7 @@ experiences:
           - NodeJS
           - SalesForce
     - role: Senior Software Developer
-      time: JUL-2019 | FEV-2021
+      time: JUL-2019 | FEB-2021
       company: GPr Sistemas
       details: |
         GPr is a company in the network security sector, it has participated in the biggest technological transitions in the country over more than 30 years. Today it operates primarily with monitoring networks of major banks and ATMs machines in the country, mixing software development and information security. Here I had the opportunity to develop a network monitoring system for one of the most profitable banks in the world.
@@ -130,7 +130,7 @@ experiences:
           - Splunk
           - Redis
     - role: Systems Analyst | Developer
-      time: FEV-2013 | JUL-2019
+      time: FEB-2013 | JUL-2019
       company: Debx - Zucchetti Brasil
       details: |
           ERP developer in Delphi with Oracle SQL.
@@ -141,24 +141,24 @@ projects:
     title: Projects
     assignments:
       - title: Tudo Vegan
-        link: "#http://www.tudovegan.com.br/"
-        tagline: ""
+        link: "http://www.tudovegan.com.br/"
+        tagline: "System developed to scan the internet looking for recipes Vegans with the stated ingredients."
 
-#       - title: DevStudio
-#         link: "#"
-#         tagline: "A responsive website template designed to help web developers/designers market their services."
+      - title: Home Office Status
+        link: "https://github.com/guedesfelipe/home_office_status"
+        tagline: "Notify home office status to avoid inopportune interruptions"
 
-#       - title: Tempo
-#         link: "#"
-#         tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
+      - title: Smart Parking
+        link: "#"
+        tagline: "System developed for booking specific vacancies in parking lots, through an app and sensors in the parking spaces using IoT."
 
-#       - title: Atom
-#         link: "#"
-#         tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
+      - title: Residential Water Management
+        link: "#"
+        tagline: "Project to notify and raise awareness about the consumption of water used in homes using IoT."
 
-#       - title: Delta
-#         link: "#"
-#         tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+      - title: Smart Home
+        link: "#"
+        tagline: "Development of the Home Control project and presentation in the sample of Sciences at COTIL and UNICAMP Open Doors."
 
 # publications:
 #     title: Publications
