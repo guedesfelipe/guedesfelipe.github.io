@@ -234,5 +234,8 @@ skills:
       - name: RabbitMQ
         level: 78%
 
+      - name: React Native
+        level: 55%
+
 footer: >
     Designed with <i class="fas fa-heart"></i> by <a href="https://guedesfelipe.github.io" target="_blank" rel="nofollow">Felipe Guedes</a>
