@@ -57,7 +57,7 @@ career-profile:
         solve new problems in the best possible way,
         using the knowledge acquired over time and
         always learning new things to apply.
-        I'm a calm person, with ease of interpersonal relationship
+        I'm a calm person, with good interpersonal relationship
         and I'm quite persistent in the search for
         my personal and professional goals.
 education:
@@ -89,12 +89,9 @@ experiences:
       time: MAR-2021 | OCT-2021
       company: JustForYou
       details: |
-        Responsible for architecting internal product solutions, maintaining and managing the company's algorithms.
-        Review, design and discuss software architecture solutions and requirements of internal product.
-        Cooperate with team members to review software artifacts, define and discuss best approach to solve end-user needs.
-        Maintain software artifacts overtime.
-        Helping the Development Team understand the need for clear and concise Product Backlog items and in delivering the product to create high-value products.
-
+        Responsible for architecting internal product solutions, maintaining and managing the company's algorithms, as well as reviewing, designing and discussing software architecture solutions and requirements. 
+        Working together with team members, I was also responsible to review software artifacts, define and discuss best approach to solve end-user needs and maintain software artifacts overtime. 
+        Lastly, I have helped the Development Team understand the need for clear and concise product Backlog items and in delivering the demands to create high-value products.
         Technologies:
           - Python 3.x
           - FastAPI
@@ -142,7 +139,7 @@ projects:
     assignments:
       - title: Tudo Vegan
         link: "http://www.tudovegan.com.br/"
-        tagline: "System developed to scan the internet looking for recipes Vegans with the stated ingredients."
+        tagline: "System developed to scan the internet looking for Vegan recipes with the stated ingredients."
 
       - title: Home Office Status
         link: "https://github.com/guedesfelipe/home_office_status"
