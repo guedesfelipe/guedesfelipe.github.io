@@ -49,17 +49,13 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-        I have always identified myself with
-        technology since I was little, where I disassembled things
-        to transform into others with new functionalities, a
-        mini maker at the time. After deeper contact with the
-        programming, this awoke in me an immense desire to
-        solve new problems in the best possible way,
-        using the knowledge acquired over time and
-        always learning new things to apply.
-        I'm a calm person, with good interpersonal relationship
-        and I'm quite persistent in the search for
-        my personal and professional goals.
+        Since childhood, I have been passionate about technology.
+        As a true enthusiast, I disassembled things to transform
+        into others with new functionalities. This natural inclination led me
+        to explore programming, awakening in me the desire to solve problems
+        efficiently. I am a calm person, with good interpersonal relationships
+        and I'm quite persistent in the search for my personal
+        and professional goals.
 education:
     - degree: Bachelor in Computer Science.
       university: Universidade Paulista
@@ -70,10 +66,27 @@ education:
       time: 2010 | 2012
       details: 
 experiences:
+    - role: Tech Lead | Python Specialist
+      time: DEC-2022 | Present
+      company: ROIT
+      details: |
+        As a fullstack tech lead, I'm responsible for leading the
+        development of a web application from a supplier portal.
+        Using my skills in Python and Vue, I coordinate the development team
+        front-end and back-end, ensuring a solid architecture,
+        implementing advanced features and ensuring the delivery of a
+        high quality user experience.
     - role: Software Engineer | Python Specialist
-      time: OCT-2021 | Present
+      time: OCT-2021 | DEC-2022
       company: Sensedia
       details: |
+        Design and development of REST APIs that handle thousands of
+        requests per minute with FastAPI and Kubernetes.
+        Design and development of microservices with Python for integration
+        with other systems, APIs, SOAP webservers, SAP rfc and various
+        databases. Maintain and develop container images over time.
+        Unit tests and end2end run with pytests and with extensive
+        code coverage and documentation.
         Technologies:
           - Python 3.x
           - FastAPI
@@ -85,6 +98,7 @@ experiences:
           - RabbitMQ
           - Kubernetes
           - Docker
+          - AWS
     - role: Senior Software Developer | Tech Lead | Scrum Master
       time: MAR-2021 | OCT-2021
       company: JustForYou
@@ -220,7 +234,7 @@ skills:
         level: 95%
 
       - name: FastAPI
-        level: 90%
+        level: 92%
 
       - name: PostgresSQL
         level: 92%
@@ -233,6 +247,15 @@ skills:
 
       - name: React Native
         level: 55%
+
+      - name: Vue
+        level: 60%
+
+      - name: AWS
+        level: 75%
+
+      - name: GCP
+        level: 70%
 
 footer: >
     Designed with <i class="fas fa-heart"></i> by <a href="https://guedesfelipe.github.io" target="_blank" rel="nofollow">Felipe Guedes</a>
