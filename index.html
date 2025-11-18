@@ -1,18 +1,773 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Guedes - Software Engineer | Tech Lead | Python Specialist</title>
+    <meta name="description" content="Felipe Guedes - Software Engineer, Tech Lead, and Python Specialist with extensive experience in backend development, API design, and team leadership.">
+    <meta name="keywords" content="Felipe Guedes, Software Engineer, Tech Lead, Python, Backend Developer, API Development">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-gray: #ecf0f1;
+            --border-color: #bdc3c7;
+        }
 
-{% include career-profile.html %}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
 
-{% unless site.data.data.sidebar.education %}
-  {% include education.html %}
-{% endunless %}
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
 
-{% include experiences.html %}
+        .btn {
+            padding: 10px 20px;
+            border: 2px solid #2c3e50;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+            color: #2c3e50;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
-{% include projects.html %}
+        .btn:hover {
+            background-color: #2c3e50;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
 
-{% include publications.html %}
+        .btn-primary {
+            background-color: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
 
-{% include skills.html %}
+        .btn-primary:hover {
+            background-color: #1a252f;
+            border-color: #1a252f;
+        }
+
+        .btn-secondary {
+            background-color: #34495e;
+            color: white;
+            border-color: #34495e;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2c3e50;
+            border-color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .cv-content {
+            padding: 40px 60px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--secondary-color);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Layout de uma coluna para ATS */
+        .two-column.single-column {
+            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-column.single-column .main-content {
+            order: 1;
+        }
+
+        .two-column.single-column .sidebar {
+            order: 2;
+        }
+
+        /* Reordena as seções dentro de main-content no layout ATS */
+        .two-column.single-column .main-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-column.single-column .main-content .section:nth-child(1) {
+            order: 1; /* Sobre Mim */
+        }
+
+        .two-column.single-column .main-content .section:nth-child(2) {
+            order: 3; /* Experiência Profissional */
+        }
+
+        .two-column.single-column .main-content .section:nth-child(3) {
+            order: 4; /* Projetos e Conquistas */
+        }
+
+        /* Reordena as seções dentro da sidebar no layout ATS */
+        .two-column.single-column .sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-column.single-column .sidebar .section:nth-child(1) {
+            order: 2; /* Habilidades - logo após Sobre Mim */
+        }
+
+        .two-column.single-column .sidebar .section:nth-child(2) {
+            order: 5; /* Formação */
+        }
+
+        .two-column.single-column .sidebar .section:nth-child(3) {
+            order: 6; /* Idiomas */
+        }
+
+        .two-column.single-column .sidebar .section:nth-child(4) {
+            order: 7; /* Qualidades Pessoais */
+        }
+
+        .two-column.single-column .skills-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .company {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .period {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-top: 10px;
+            line-height: 1.7;
+        }
+
+        .description ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        .description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .institution {
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+
+        .year {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .language-item {
+            padding: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .project-item a {
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .check-icon {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .competencies-list li {
+            margin-bottom: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .controls {
+                display: none !important;
+            }
+
+            /* Esconde a caixa de PDFs otimizados */
+            div[style*="position: fixed"] {
+                display: none !important;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .cv-content {
+                padding: 20px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            /* Esconde emojis na versão impressa, eles ficam pretos ao imprimir */
+            .emoji {
+                display: none !important;
+            }
+
+            /* Esconde check icons na versão impressa */
+            .check-icon {
+                display: none !important;
+            }
+
+            /* Adiciona bullet points aos itens de competências na impressão */
+            .competencies-list li::before {
+                content: '• ';
+                font-weight: bold;
+            }
+
+            /* Mantém o layout ATS de uma coluna ao imprimir se já estiver selecionado */
+            .two-column.single-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .controls {
+                position: static;
+                justify-content: center;
+                padding: 20px;
+                flex-wrap: wrap;
+            }
+
+            .cv-content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button class="btn btn-primary" onclick="toggleLanguage()">
+            <span id="langButton">EN</span>
+        </button>
+        <button class="btn btn-primary" onclick="toggleLayout()">
+            <span id="layoutButton" data-pt="📄 Layout ATS" data-en="📄 ATS Layout">📄 Layout ATS</span>
+        </button>
+        <button class="btn btn-secondary" onclick="downloadPDF()">
+            <span class="download-text" data-pt="Imprimir PDF" data-en="Print PDF">Imprimir PDF</span>
+        </button>
+    </div>
+    
+    <div class="container">
+        <div class="cv-content" id="cv-content">
+            <header>
+                <h1>Felipe Guedes</h1>
+                <p class="subtitle" data-pt="Engenheiro de Software | Tech Lead | Especialista Python" 
+                   data-en="Software Engineer | Tech Lead | Python Specialist">
+                    Engenheiro de Software | Tech Lead | Especialista Python
+                </p>
+                <div class="contact-info">
+                    <span><span class="emoji">📍</span> <span data-pt="SP - Brasil" data-en="SP - Brazil">SP - Brasil</span></span>
+                    <span><span class="emoji">📧</span> <a href="mailto:contatofelipeguedes@gmail.com">contatofelipeguedes@gmail.com</a></span>
+                    <span><span class="emoji">💼</span> <a href="https://linkedin.com/in/felipe-guedes-263480127" target="_blank">LinkedIn</a></span>
+                    <span><span class="emoji">🔗</span> <a href="https://github.com/guedesfelipe" target="_blank">GitHub</a></span>
+                    <span><span class="emoji">🌐</span> <a href="https://guedesfelipe.github.io/" target="_blank">Website</a></span>
+                    <span><span class="emoji">📝</span> <a href="https://guedesfelipe.github.io/blog" target="_blank">Blog</a></span>
+                </div>
+            </header>
+
+            <div class="two-column">
+                <div class="main-content">
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h2>
+                        <p class="about-text" data-pt="Engenheiro de Software com mais de 10 anos de experiência em desenvolvimento de soluções escaláveis e de alta performance. Especialista em arquitetura de sistemas distribuídos, APIs REST e cloud computing, com histórico comprovado em liderar equipes técnicas e entregar produtos de alto valor. Apaixonado por resolver problemas complexos através de código limpo, boas práticas e tecnologias modernas. Contribuidor ativo da comunidade open source, com foco em ferramentas que melhoram a produtividade de desenvolvedores."
+                             data-en="Software Engineer with over 10 years of experience developing scalable, high-performance solutions. Specialist in distributed systems architecture, REST APIs, and cloud computing, with a proven track record in leading technical teams and delivering high-value products. Passionate about solving complex problems through clean code, best practices, and modern technologies. Active open source contributor, focused on tools that enhance developer productivity.">
+                            Engenheiro de Software com mais de 10 anos de experiência em desenvolvimento de soluções escaláveis e de alta performance. Especialista em arquitetura de sistemas distribuídos, APIs REST e cloud computing, com histórico comprovado em liderar equipes técnicas e entregar produtos de alto valor. Apaixonado por resolver problemas complexos através de código limpo, boas práticas e tecnologias modernas. Contribuidor ativo da comunidade open source, com foco em ferramentas que melhoram a produtividade de desenvolvedores.
+                        </p>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h2>
+                        
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">Magalu Cloud</div>
+                                <div class="job-title" data-pt="Engenheiro de Software Sênior" data-en="Senior Software Engineer">Engenheiro de Software Sênior</div>
+                                <div class="period" id="present-period" data-start="2023-07-01">Jul 2023 - Presente</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Desenvolvimento de APIs de Network (VPC) de alta performance na maior plataforma de cloud computing do Brasil. Implementação de arquiteturas multi-zona e multi-cell para garantir alta disponibilidade e escalabilidade. Otimização de performance em sistemas distribuídos, trabalhando com infraestrutura de nuvem crítica que serve milhares de clientes empresariais."
+                                   data-en="Development of high-performance Network APIs (VPC) for the Brazil's largest cloud computing platform. Implementation of multi-zone and multi-cell architectures to ensure high availability and scalability. Performance optimization in distributed systems, working with critical cloud infrastructure serving thousands of enterprise customers.">
+                                    Desenvolvimento de APIs de Network (VPC) de alta performance na maior plataforma de cloud computing do Brasil. Implementação de arquiteturas multi-zona e multi-cell para garantir alta disponibilidade e escalabilidade. Otimização de performance em sistemas distribuídos, trabalhando com infraestrutura de nuvem crítica que serve milhares de clientes empresariais.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">ROIT</div>
+                                <div class="job-title" data-pt="Tech Lead | Especialista Python" data-en="Tech Lead | Python Specialist">Tech Lead | Especialista Python</div>
+                                <div class="period" data-pt="Dez 2022 - Jul 2023" data-en="Dec 2022 - Jul 2023">Dez 2022 - Jul 2023</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Liderança técnica no desenvolvimento fullstack de portal de fornecedores, coordenando equipe multidisciplinar. Arquitetura e implementação de soluções com Python (backend) e Vue.js 3 (frontend), definindo padrões de código, estrutura de projeto e melhores práticas. Responsável por code reviews, mentorias técnicas e garantia de entregas de alta qualidade com foco em performance e experiência do usuário."
+                                   data-en="Technical leadership in fullstack development of a supplier portal, coordinating a multidisciplinary team. Architecture and implementation of solutions with Python (backend) and Vue.js 3 (frontend), defining code standards, project structure, and best practices. Responsible for code reviews, technical mentoring, and ensuring high-quality deliveries focused on performance and user experience.">
+                                    Liderança técnica no desenvolvimento fullstack de portal de fornecedores, coordenando equipe multidisciplinar. Arquitetura e implementação de soluções com Python (backend) e Vue.js 3 (frontend), definindo padrões de código, estrutura de projeto e melhores práticas. Responsável por code reviews, mentorias técnicas e garantia de entregas de alta qualidade com foco em performance e experiência do usuário.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">Sensedia</div>
+                                <div class="job-title" data-pt="Engenheiro de Software" data-en="Software Developer Engineer">Engenheiro de Software</div>
+                                <div class="period" data-pt="Out 2021 - Dez 2022" data-en="Oct 2021 - Dec 2022">Out 2021 - Dez 2022</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Desenvolvimento de APIs REST de alta performance com FastAPI processando milhares de requisições por minuto. Arquitetura de microsserviços em Python com deployment em Kubernetes, integrando sistemas legados (SOAP, SAP RFC) com arquiteturas modernas. Implementação de testes unitários e end-to-end com pytest mantendo alta cobertura de código. Gestão de imagens Docker e pipelines CI/CD para entregas contínuas."
+                                   data-en="Development of high-performance REST APIs with FastAPI processing thousands of requests per minute. Python microservices architecture with Kubernetes deployment, integrating legacy systems (SOAP, SAP RFC) with modern architectures. Implementation of unit and end-to-end tests with pytest maintaining high code coverage. Docker image management and CI/CD pipelines for continuous delivery.">
+                                    Desenvolvimento de APIs REST de alta performance com FastAPI processando milhares de requisições por minuto. Arquitetura de microsserviços em Python com deployment em Kubernetes, integrando sistemas legados (SOAP, SAP RFC) com arquiteturas modernas. Implementação de testes unitários e end-to-end com pytest mantendo alta cobertura de código. Gestão de imagens Docker e pipelines CI/CD para entregas contínuas.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">JustForYou</div>
+                                <div class="job-title" data-pt="Desenvolvedor de Software Sênior | Tech Lead | Scrum Master" data-en="Senior Software Developer | Tech Lead | Scrum Master">Desenvolvedor de Software Sênior | Tech Lead | Scrum Master</div>
+                                <div class="period" data-pt="Mar 2021 - Out 2021" data-en="Mar 2021 - Oct 2021">Mar 2021 - Out 2021</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Atuação tripla como Tech Lead, Scrum Master e desenvolvedor sênior. Arquitetura de soluções para produtos internos, mantendo e otimizando algoritmos críticos de negócio. Facilitação de cerimônias ágeis, gestão de backlog e remoção de impedimentos. Mentoria técnica da equipe de desenvolvimento, revisão de código e definição de padrões arquiteturais para maximizar entrega de valor ao cliente."
+                                   data-en="Triple role as Tech Lead, Scrum Master, and senior developer. Architecture of internal product solutions, maintaining and optimizing critical business algorithms. Facilitation of agile ceremonies, backlog management, and impediment removal. Technical mentoring of the development team, code review, and definition of architectural standards to maximize customer value delivery.">
+                                    Atuação tripla como Tech Lead, Scrum Master e desenvolvedor sênior. Arquitetura de soluções para produtos internos, mantendo e otimizando algoritmos críticos de negócio. Facilitação de cerimônias ágeis, gestão de backlog e remoção de impedimentos. Mentoria técnica da equipe de desenvolvimento, revisão de código e definição de padrões arquiteturais para maximizar entrega de valor ao cliente.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">GPr Sistemas</div>
+                                <div class="job-title" data-pt="Desenvolvedor de Software Sênior" data-en="Senior Software Developer">Desenvolvedor de Software Sênior</div>
+                                <div class="period" data-pt="Jul 2019 - Fev 2021" data-en="Jul 2019 - Feb 2021">Jul 2019 - Fev 2021</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Desenvolvimento fullstack de soluções de monitoramento de rede para instituições bancárias e empresas privadas. Implementação de sistema de mapeamento de topologia de rede via protocolo SNMP com Python, processando dados de milhares de dispositivos. Desenvolvimento de aplicações web com Django e Flask, criando APIs RESTful e integrações com plataformas de observabilidade (Splunk). Customização de dashboards e alertas para infraestrutura crítica."
+                                   data-en="Fullstack development of network monitoring solutions for banking institutions and private companies. Implementation of network topology mapping system via SNMP protocol with Python, processing data from thousands of devices. Web application development with Django and Flask, creating RESTful APIs and integrations with observability platforms (Splunk). Customization of dashboards and alerts for critical infrastructure.">
+                                    Desenvolvimento fullstack de soluções de monitoramento de rede para instituições bancárias e empresas privadas. Implementação de sistema de mapeamento de topologia de rede via protocolo SNMP com Python, processando dados de milhares de dispositivos. Desenvolvimento de aplicações web com Django e Flask, criando APIs RESTful e integrações com plataformas de observabilidade (Splunk). Customização de dashboards e alertas para infraestrutura crítica.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="experience-item">
+                            <div class="job-header">
+                                <div class="company">DEBCRED (Zucchetti)</div>
+                                <div class="job-title" data-pt="Analista de Sistemas & Desenvolvedor" data-en="Systems Analyst & Developer">Analista de Sistemas & Desenvolvedor</div>
+                                <div class="period" data-pt="Fev 2013 - Jul 2019" data-en="Feb 2013 - Jul 2019">Fev 2013 - Jul 2019</div>
+                            </div>
+                            <div class="description">
+                                <p data-pt="Desenvolvimento e manutenção de sistema ERP com Delphi e Oracle Database. Especialização no módulo de Recursos Humanos, implementando integrações com sistemas governamentais (eSocial, SEFIP, RAIS) e terceiros. Desenvolvimento de rotinas de migração de dados e otimização de queries SQL. Análise de requisitos, modelagem de banco de dados e entrega de melhorias contínuas no sistema utilizado por centenas de empresas."
+                                   data-en="Development and maintenance of ERP system with Delphi and Oracle Database. Specialization in Human Resources module, implementing integrations with government systems (eSocial, SEFIP, RAIS) and third parties. Development of data migration routines and SQL query optimization. Requirements analysis, database modeling, and continuous improvement delivery for a system used by hundreds of companies.">
+                                    Desenvolvimento e manutenção de sistema ERP com Delphi e Oracle Database. Especialização no módulo de Recursos Humanos, implementando integrações com sistemas governamentais (eSocial, SEFIP, RAIS) e terceiros. Desenvolvimento de rotinas de migração de dados e otimização de queries SQL. Análise de requisitos, modelagem de banco de dados e entrega de melhorias contínuas no sistema utilizado por centenas de empresas.
+                                </p>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Projetos e Conquistas" data-en="Projects and Achievements">Projetos e Conquistas</h2>
+
+                        <article class="project-item">
+                            <div class="job-title">PLS-CLI</div>
+                            <div class="description">
+                                <p data-pt="Criador e mantenedor de ferramenta CLI open source em Python: greetings minimalista e TODO list totalmente configurável para terminal. Suporta múltiplos shells (Bash, Zsh, Fish, PowerShell, etc.), com personalização completa de cores, temas e comandos. Desenvolvida com Typer e Rich para melhorar a produtividade do desenvolvedor."
+                                   data-en="Creator and maintainer of an open source Python CLI tool: minimalist greetings and fully configurable TODO list for terminal. Supports multiple shells (Bash, Zsh, Fish, PowerShell, etc.), with complete customization of colors, themes, and commands. Built with Typer and Rich to enhance developer productivity.">
+                                    Criador e mantenedor de ferramenta CLI open source em Python: greetings minimalista e TODO list totalmente configurável para terminal. Suporta múltiplos shells (Bash, Zsh, Fish, PowerShell, etc.), com personalização completa de cores, temas e comandos. Desenvolvida com Typer e Rich para melhorar a produtividade do desenvolvedor.
+                                </p>
+                                <p><a href="https://guedesfelipe.github.io/pls-cli/" target="_blank" style="color: var(--secondary-color); text-decoration: none; font-weight: 500;"><span class="emoji">🔗</span> guedesfelipe.github.io/pls-cli</a></p>
+                            </div>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="job-title">Tudo Vegan</div>
+                            <div class="description">
+                                <p data-pt="Sistema desenvolvido para percorrer a internet à procura de receitas veganas com os ingredientes informados."
+                                   data-en="System developed to search the internet for vegan recipes with specified ingredients.">
+                                    Sistema desenvolvido para percorrer a internet à procura de receitas veganas com os ingredientes informados.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="job-title" data-pt="Estacionamento Inteligente" data-en="Smart Parking">Estacionamento Inteligente</div>
+                            <div class="year" data-pt="Novembro 2016" data-en="November 2016">Novembro 2016</div>
+                            <div class="description">
+                                <p data-pt="Sistema desenvolvido para reservas de vagas específicas em estacionamentos, através de um aplicativo e sensores nas vagas utilizando IoT. Trabalho de Conclusão de Curso."
+                                   data-en="System developed for reserving specific parking spaces through an app and sensors in parking spots using IoT. Bachelor's thesis project.">
+                                    Sistema desenvolvido para reservas de vagas específicas em estacionamentos, através de um aplicativo e sensores nas vagas utilizando IoT. Trabalho de Conclusão de Curso.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="job-title" data-pt="Gestão de Água Residencial" data-en="Residential Water Management">Gestão de Água Residencial</div>
+                            <div class="year" data-pt="Novembro 2016" data-en="November 2016">Novembro 2016</div>
+                            <div class="description">
+                                <p data-pt="Projeto para notificar e conscientizar o consumo de água gasto nas residências utilizando IoT."
+                                   data-en="Project to notify and raise awareness about water consumption in residences using IoT.">
+                                    Projeto para notificar e conscientizar o consumo de água gasto nas residências utilizando IoT.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="project-item">
+                            <div class="job-title" data-pt="Casa Inteligente" data-en="Smart Home">Casa Inteligente</div>
+                            <div class="year" data-pt="Dezembro 2012" data-en="December 2012">Dezembro 2012</div>
+                            <div class="description">
+                                <p data-pt="Desenvolvimento do projeto Home Control e apresentação na amostra de Ciências do COTIL e UNICAMP de Portas Abertas."
+                                   data-en="Development of the Home Control project and presentation at the COTIL Science Exhibition and UNICAMP Open Doors.">
+                                    Desenvolvimento do projeto Home Control e apresentação na amostra de Ciências do COTIL e UNICAMP de Portas Abertas.
+                                </p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+                <aside class="sidebar">
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Habilidades" data-en="Skills">Habilidades</h2>
+                        <div class="skills-grid">
+                            <div class="skill-item"><span class="skill-name">Python</span></div>
+                            <div class="skill-item"><span class="skill-name">FastAPI</span></div>
+                            <div class="skill-item"><span class="skill-name">Django</span></div>
+                            <div class="skill-item"><span class="skill-name">Flask</span></div>
+                            <div class="skill-item"><span class="skill-name">Vue.js</span></div>
+                            <div class="skill-item"><span class="skill-name">JavaScript</span></div>
+                            <div class="skill-item"><span class="skill-name">PostgreSQL</span></div>
+                            <div class="skill-item"><span class="skill-name">MySQL</span></div>
+                            <div class="skill-item"><span class="skill-name">Oracle SQL</span></div>
+                            <div class="skill-item"><span class="skill-name">Redis</span></div>
+                            <div class="skill-item"><span class="skill-name">Linux</span></div>
+                            <div class="skill-item"><span class="skill-name">Docker</span></div>
+                            <div class="skill-item"><span class="skill-name">Kubernetes</span></div>
+                            <div class="skill-item"><span class="skill-name">Git/GitLab</span></div>
+                            <div class="skill-item"><span class="skill-name">NodeJS</span></div>
+                            <div class="skill-item"><span class="skill-name">Splunk</span></div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Formação" data-en="Education">Formação</h2>
+                        
+                        <article class="education-item">
+                            <div class="year">2017</div>
+                            <div class="degree" data-pt="Bacharel em Ciências da Computação" data-en="Bachelor's in Computer Science">Bacharel em Ciências da Computação</div>
+                            <div class="institution">Universidade Paulista</div>
+                            <div>Limeira, SP</div>
+                        </article>
+
+                        <article class="education-item">
+                            <div class="year">2012</div>
+                            <div class="degree" data-pt="Técnico em Informática" data-en="Technical Degree in Computer Science">Técnico em Informática</div>
+                            <div class="institution" data-pt="Universidade Estadual de Campinas" data-en="State University of Campinas">Universidade Estadual de Campinas</div>
+                            <div>Limeira, SP</div>
+                        </article>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Idiomas" data-en="Languages">Idiomas</h2>
+                        <div class="languages">
+                            <div class="language-item" data-pt="Português - Nativo" data-en="Portuguese - Native">Português - Nativo</div>
+                            <div class="language-item" data-pt="Inglês - Avançado" data-en="English - Advanced">Inglês - Avançado</div>
+                            <div class="language-item" data-pt="Espanhol - Intermediário" data-en="Spanish - Intermediate">Espanhol - Intermediário</div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title" data-pt="Competências Profissionais" data-en="Professional Competencies">Competências Profissionais</h2>
+                        <div class="description">
+                            <ul class="competencies-list" style="list-style: none; padding: 0; line-height: 1.8;">
+                                <li><span class="check-icon">✓</span> <span data-pt="Liderança técnica e mentoria de equipes de desenvolvimento" data-en="Technical leadership and development team mentoring">Liderança técnica e mentoria de equipes de desenvolvimento</span></li>
+                                <li><span class="check-icon">✓</span> <span data-pt="Comunicação eficaz com stakeholders técnicos e não-técnicos" data-en="Effective communication with technical and non-technical stakeholders">Comunicação eficaz com stakeholders técnicos e não-técnicos</span></li>
+                                <li><span class="check-icon">✓</span> <span data-pt="Resolução de problemas complexos e pensamento analítico" data-en="Complex problem-solving and analytical thinking">Resolução de problemas complexos e pensamento analítico</span></li>
+                                <li><span class="check-icon">✓</span> <span data-pt="Gestão de projetos ágeis (Scrum/Kanban)" data-en="Agile project management (Scrum/Kanban)">Gestão de projetos ágeis (Scrum/Kanban)</span></li>
+                                <li><span class="check-icon">✓</span> <span data-pt="Code review e garantia de qualidade de código" data-en="Code review and code quality assurance">Code review e garantia de qualidade de código</span></li>
+                                <li><span class="check-icon">✓</span> <span data-pt="Adaptabilidade a novas tecnologias e frameworks" data-en="Adaptability to new technologies and frameworks">Adaptabilidade a novas tecnologias e frameworks</span></li>
+                            </ul>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        let currentLang = 'pt';
+        let currentLayout = 'two-column'; // 'two-column' ou 'single-column'
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            const langButton = document.getElementById('langButton');
+            langButton.textContent = currentLang === 'pt' ? 'EN' : 'PT-BR';
+
+            document.querySelectorAll('[data-pt]').forEach(element => {
+                element.textContent = element.getAttribute('data-' + currentLang);
+            });
+
+            const layoutButton = document.getElementById('layoutButton');
+            if (currentLayout === 'two-column') {
+                layoutButton.innerHTML = currentLang === 'pt' ? '📄 Layout ATS' : '📄 ATS Layout';
+            } else {
+                layoutButton.innerHTML = currentLang === 'pt' ? '🎨 Layout Padrão' : '🎨 Default Layout';
+            }
+
+            // Atualiza o período do emprego atual ao trocar idioma
+            updatePresentPeriod();
+        }
+
+        function toggleLayout() {
+            const layoutContainer = document.querySelector('.two-column');
+            const layoutButton = document.getElementById('layoutButton');
+
+            if (currentLayout === 'two-column') {
+                // Muda para layout de uma coluna (ATS-friendly)
+                layoutContainer.classList.add('single-column');
+                currentLayout = 'single-column';
+                layoutButton.innerHTML = currentLang === 'pt' ? '🎨 Layout Padrão' : '🎨 Default Layout';
+            } else {
+                // Volta para layout de duas colunas
+                layoutContainer.classList.remove('single-column');
+                currentLayout = 'two-column';
+                layoutButton.innerHTML = currentLang === 'pt' ? '📄 Layout ATS' : '📄 ATS Layout';
+            }
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+
+        // Calcula tempo de experiência dinamicamente
+        function calculateExperience(startDate) {
+            const start = new Date(startDate);
+            const now = new Date();
+
+            let years = now.getFullYear() - start.getFullYear();
+            let months = now.getMonth() - start.getMonth();
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            return { years, months };
+        }
+
+        function updatePresentPeriod() {
+            const periodElement = document.getElementById('present-period');
+            if (!periodElement) return;
+
+            const startDate = periodElement.getAttribute('data-start');
+            const { years, months } = calculateExperience(startDate);
+
+            let duration = '';
+            if (currentLang === 'pt') {
+                periodElement.textContent = 'Jul 2023 - Presente';
+
+                if (years > 0 && months > 0) {
+                    duration = ` (${years} ${years === 1 ? 'ano' : 'anos'} e ${months} ${months === 1 ? 'mês' : 'meses'})`;
+                } else if (years > 0) {
+                    duration = ` (${years} ${years === 1 ? 'ano' : 'anos'})`;
+                } else {
+                    duration = ` (${months} ${months === 1 ? 'mês' : 'meses'})`;
+                }
+
+                periodElement.textContent = 'Jul 2023 - Presente' + duration;
+            } else {
+                periodElement.textContent = 'Jul 2023 - Present';
+
+                if (years > 0 && months > 0) {
+                    duration = ` (${years} ${years === 1 ? 'year' : 'years'} and ${months} ${months === 1 ? 'month' : 'months'})`;
+                } else if (years > 0) {
+                    duration = ` (${years} ${years === 1 ? 'year' : 'years'})`;
+                } else {
+                    duration = ` (${months} ${months === 1 ? 'month' : 'months'})`;
+                }
+
+                periodElement.textContent = 'Jul 2023 - Present' + duration;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CV loaded successfully');
+            updatePresentPeriod(); // Atualiza o período do emprego atual ao carregar a página
+        });
+    </script>
+</body>
+</html>
