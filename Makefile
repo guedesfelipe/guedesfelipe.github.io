@@ -1,7 +1,7 @@
 PORT ?= 8000
-SITE_FILES := index.html tokens.css base.css en pt-br
+SITE_FILES := index.html tokens.css base.css en pt-br robots.txt sitemap.xml og-pt.png og-en.png
 
-.PHONY: help build check site serve clean
+.PHONY: help build check site serve og clean
 
 help: ## Show the available targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  make %-7s %s\n", $$1, $$2}'
@@ -26,6 +26,9 @@ serve: site ## Build and serve _site/ on localhost (PORT=8000 by default)
 	@echo "  http://localhost:$(PORT)/en/"
 	@echo ""
 	@python3 -m http.server $(PORT) --bind 127.0.0.1 --directory _site
+
+og: ## Re-render og-pt.png and og-en.png (uses the claude-seo Chromium)
+	@PLAYWRIGHT_BROWSERS_PATH=$(HOME)/.local/share/claude-seo/ms-playwright $(HOME)/.local/share/claude-seo/.venv/bin/python -I scripts/og/render.py
 
 clean: ## Remove generated files
 	@rm -rf _site en pt-br
